@@ -18,15 +18,22 @@ public class HomeController {
         Actor actor = new Actor();
         actor.setName("Sandra Bullock");
         actor.setRealname("Sandra Mae Bullowski");
-
+        actorRepository.save(actor);
 
         Movie movie = new Movie();
         movie.setTitle("Emoji Movie");
         movie.setYear(2017);
         movie.setDescription("About Emojis...");
         movieRepository.save(movie);
-
         actor.addMovie(movie);
+
+        Movie movie2 = new Movie();
+        movie2.setTitle("Emoji Movie2");
+        movie2.setYear(2018);
+        movie2.setDescription("About Emojis...");
+        movieRepository.save(movie2);
+        actor.addMovie(movie2);
+
         actorRepository.save(actor);
 
         model.addAttribute("actors", actorRepository.findAll());
